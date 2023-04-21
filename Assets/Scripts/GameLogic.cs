@@ -33,8 +33,8 @@ public class GameLogic : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit)){
-                if (hit.collider != null && hit.collider is BlockPrefab)
-                {                    
+                if (hit.collider != null && hit.collider.GetComponent<BlockPrefab>() != null)
+                {
                     // If we hit the correct type of object, we can open the info panel.
                     infopanel.Open(hit.collider.GetComponent<BlockPrefab>().block);
                 }
